@@ -1,0 +1,2 @@
+module RPIHat:
+    signal gnd
