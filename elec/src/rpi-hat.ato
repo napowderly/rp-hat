@@ -1,2 +1,163 @@
+import _2_54_2_20 from "2.54-2*20.ato"
+
+import Power from "generics/interfaces.ato"
+import I2C from "generics/interfaces.ato"
+import SPI from "generics/interfaces.ato"
+import UART from "generics/interfaces.ato"
+
 module RPIHat:
+    connector = new _2_54_2_20
+
+    power_5v = new Power
+    power_3v3 = new Power
+    spi = new SPI
+    i2c = new I2C
+    uart = new UART
+
     signal gnd
+
+    # connect power
+    gnd ~ connector.6
+    gnd ~ connector.9
+    gnd ~ connector.14
+    gnd ~ connector.20
+    gnd ~ connector.25
+    gnd ~ connector.30
+    gnd ~ connector.34
+    gnd ~ connector.39
+
+    power_5v.vcc ~ connector.2
+    power_5v.vcc ~ connector.4
+    power_5v.gnd ~ gnd
+
+    power_3v3.vcc ~ connector.1
+    power_3v3.vcc ~ connector.17
+
+    # connect SPI
+    spi.mosi ~ connector.19
+    spi.miso ~ connector.21
+    spi.clk ~ connector.23
+    spi.gnd ~ gnd
+
+    # connect I2C
+    i2c.sda ~ connector.3
+    i2c.scl ~ connector.5
+    i2c.gnd ~ gnd
+
+    # connect UART
+    uart.tx ~ connector.8
+    uart.rx ~ connector.10
+    uart.gnd ~ gnd
+
+    # connect GPIO
+    gpio0 = new GPIO
+    gpio0.io ~ connector.27
+    gpio0.gnd ~ gnd
+
+    gpio1 = new GPIO
+    gpio1.io ~ connector.28
+    gpio1.gnd ~ gnd
+
+    gpio2 = new GPIO
+    gpio2.io ~ connector.3
+    gpio2.gnd ~ gnd
+
+    gpio3 = new GPIO
+    gpio3.io ~ connector.5
+    gpio3.gnd ~ gnd
+
+    gpio4 = new GPIO
+    gpio4.io ~ connector.7
+    gpio4.gnd ~ gnd
+
+    gpio5 = new GPIO
+    gpio5.io ~ connector.29
+    gpio5.gnd ~ gnd
+
+    gpio6 = new GPIO
+    gpio6.io ~ connector.31
+    gpio6.gnd ~ gnd
+
+    gpio7 = new GPIO
+    gpio7.io ~ connector.26
+    gpio7.gnd ~ gnd
+
+    gpio8 = new GPIO
+    gpio8.io ~ connector.24
+    gpio8.gnd ~ gnd
+
+    gpio9 = new GPIO
+    gpio9.io ~ connector.21
+    gpio9.gnd ~ gnd
+
+    gpio10 = new GPIO
+    gpio10.io ~ connector.19
+    gpio10.gnd ~ gnd
+
+    gpio11 = new GPIO
+    gpio11.io ~ connector.23
+    gpio11.gnd ~ gnd
+
+    gpio12 = new GPIO
+    gpio12.io ~ connector.32
+    gpio12.gnd ~ gnd
+
+    gpio13 = new GPIO
+    gpio13.io ~ connector.33
+    gpio13.gnd ~ gnd
+
+    gpio14 = new GPIO
+    gpio14.io ~ connector.8
+    gpio14.gnd ~ gnd
+
+    gpio15 = new GPIO
+    gpio15.io ~ connector.10
+    gpio15.gnd ~ gnd
+
+    gpio16 = new GPIO
+    gpio16.io ~ connector.36
+    gpio16.gnd ~ gnd
+
+    gpio17 = new GPIO
+    gpio17.io ~ connector.11
+    gpio17.gnd ~ gnd
+
+    gpio18 = new GPIO
+    gpio18.io ~ connector.12
+    gpio18.gnd ~ gnd
+
+    gpio19 = new GPIO
+    gpio19.io ~ connector.35
+    gpio19.gnd ~ gnd
+
+    gpio20 = new GPIO
+    gpio20.io ~ connector.38
+    gpio20.gnd ~ gnd
+
+    gpio21 = new GPIO
+    gpio21.io ~ connector.40
+    gpio21.gnd ~ gnd
+
+    gpio22 = new GPIO
+    gpio22.io ~ connector.15
+    gpio22.gnd ~ gnd
+
+    gpio23 = new GPIO
+    gpio23.io ~ connector.16
+    gpio23.gnd ~ gnd
+
+    gpio24 = new GPIO
+    gpio24.io ~ connector.18
+    gpio24.gnd ~ gnd
+
+    gpio25 = new GPIO
+    gpio25.io ~ connector.22
+    gpio25.gnd ~ gnd
+
+    gpio26 = new GPIO
+    gpio26.io ~ connector.37
+    gpio26.gnd ~ gnd
+
+    gpio27 = new GPIO
+    gpio27.io ~ connector.13
+    gpio27.gnd ~ gnd
